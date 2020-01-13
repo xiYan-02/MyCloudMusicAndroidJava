@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyCloudMusicAndroidJava</string>
+    <!--版本文本-->
+    <string name="copyright">Copyright © 2020 XiYan. All Rights Reserved</string>
+    <string name="login_or_zhuche">登录/注册</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

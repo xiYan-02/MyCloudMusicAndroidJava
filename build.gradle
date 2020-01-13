@@ -25,3 +25,22 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//扩展配置
+ext{
+    //最小sdk版本
+    minSdkSersion = 19
+    //编译版本
+    compileSdkVersion = 29
+    //编译工具版本
+    buildToolsVersion = "29.0.2"
+    //目标sdk版本
+    targetSdkVersion = 29
+    //版本代码
+    versionCode = 1
+    //版本名称
+    versionName = "1.0"
+}
+
+
+

@@ -1,4 +1,4 @@
-package com.example.mycloudmusicandroidjava;
+package com.example.mymusic;
 
 import org.junit.Test;
 

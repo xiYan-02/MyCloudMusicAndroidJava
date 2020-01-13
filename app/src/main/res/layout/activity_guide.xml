@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/col_width"
+    android:layout_height="match_parent"
+    tools:context=".activity.GuideActivity">
+
+   <androidx.viewpager.widget.ViewPager
+       android:id="@+id/vp"
+       android:layout_weight="1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/ci"
+        app:ci_drawable="@drawable/shape_circle_red"
+        app:ci_drawable_unselected="@drawable/shape_circle_light_gray"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_20dp"/>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/val_100dp">
+        <!--   占位控件     -->
+        <View
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_login_or_register"
+            android:textColor="@drawable/selector_txt_pressed_red"
+            android:background="@drawable/selector_guide_btn_pressed_width"
+            android:text="@string/login_or_zhuche"
+            android:layout_width="@dimen/val_130dp"
+            android:layout_height="@dimen/val_40dp"/>
+
+        <!--   占位控件     -->
+        <View
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_enter"
+            android:textColor="@drawable/selector_txt_pressed_width"
+            android:background="@drawable/selector_guide_btn_pressed"
+            android:text="立即体验"
+            android:layout_width="@dimen/val_130dp"
+            android:layout_height="@dimen/val_40dp"/>
+
+        <!--   占位控件     -->
+        <View
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

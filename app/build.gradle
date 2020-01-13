@@ -1,14 +1,24 @@
+//应用Android插件
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    //编译版本
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    //编译工具版本
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    //默认配置
     defaultConfig {
-        applicationId "com.example.mycloudmusicandroidjava"
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        //应用唯一标识
+        applicationId "com.ixuea.courses.mymusic"
+        //最小sdk版本
+        minSdkVersion rootProject.ext.minSdkSersion
+        //目标sdk版本
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        //版本代码
+        versionCode rootProject.ext.versionCode
+        //版本名称
+        versionName rootProject.ext.versionName
+        //测试相关
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,11 +29,22 @@ android {
     }
 }
 
+//依赖
 dependencies {
+    //添加在libs目录里面的jar文件
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //添加appcompat依赖
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    //添加constraintlayout依赖
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //Java测试依赖
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
+    //Android测试相关依赖
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //圆形指示器
+    //https://github.com/ongakuer/CircleIndicator
+    implementation 'me.relex:circleindicator:2.1.4'
 }
