@@ -8,6 +8,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     //默认配置
     defaultConfig {
+
         //应用唯一标识
         applicationId "com.ixuea.courses.mymusic"
         //最小sdk版本
@@ -20,6 +21,12 @@ android {
         versionName rootProject.ext.versionName
         //测试相关
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //开启MultiDex
+        multiDexEnabled true
+
+        //渠道相关
+        flavorDimensions "versionCode"
     }
     buildTypes {
         release {
@@ -27,6 +34,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //配置不同的API环境
+    productFlavors{
+        //开发环境
+        dev {
+            //API端点
+            buildConfigField('String',"ENDPOINT",'"http://dev-my-cloud-music-api-rails.ixuea.com/"')
+
+            dimension = minSdkVersion
+        }
+
+        //正式环境
+        prod {
+            //API端点
+            buildConfigField 'String','ENDPOINT','"http://api-courses-misuc.ixuea.com/"'
+
+            dimension = minSdkVersion
+        }
+    }
+
+    //将源码兼容版本设置为Java 8
+    //因为Butterknife需要Java 8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
 }
 
 //依赖
@@ -44,7 +79,79 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+//请求网络相关
+    //okhttp
+    //https://github.com/square/okhttp
+    implementation("com.squareup.okhttp3:okhttp:4.3.1")
+
+    //用来打印okhttp请求日志
+    //当然也可以自定义，要与OKHttp的版本一致
+    implementation("com.squareup.okhttp3:logging-interceptor:4.3.1")
+
+
+    //retrofit
+    //https://github.com/square/retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+
+    //使用gson解析json
+    //https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //适配retrofit使用gson解析
+    //版本要和retrofit一样
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    //适配retrofit支持rxjava
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+
+    //使用了Android响应式编程
+    //RxJava和RxAndroid区别？
+    //简单来说：就是RxAndroid在RxJava的基础上，优化了一些功能，增强了Android特有的功能
+    //https://github.com/ReactiveX/RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+//end 请求网络相关
+
+
     //圆形指示器
     //https://github.com/ongakuer/CircleIndicator
     implementation 'me.relex:circleindicator:2.1.4'
+
+    //提供通过注解的方式找控件
+    //绑定方法
+    //https://github.com/JakeWharton/butterknife
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    //material design依赖
+    //AppBarLayout在这里面
+    implementation 'com.google.android.material:material:1.0.0'
+
+    //toast工具类
+    //https://github.com/GrenderG/Toasty
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+    //apache common lang3工具包
+    //提供了StringUtils等这样的类
+    //http://commons.apache.org/proper/commons-lang/
+    implementation 'org.apache.commons:commons-lang3:3.9'
+
+    //MultiDex
+    implementation "androidx.multidex:multidex:2.0.0"
+
+    //使用了Android响应式编程
+    //RxJava和RxAndroid区别？
+    //简单来说：就是RxAndroid在RxJava的基础上
+    //优化了一些功能
+    //增强了Android特有的功能
+    //https://github.com/ReactiveX/RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //通过OkHttp的拦截器机制
+    //实现在Chrome中抓包
+    //https://github.com/facebook/stetho
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    //跨界面通信框架
+    //https://github.com/greenrobot/EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
 }

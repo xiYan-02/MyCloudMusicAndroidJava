@@ -6,4 +6,30 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forget_password">忘记密码？</string>
+
+    <string name="error_username">请输入手机号/邮箱</string>
+    <string name="error_pwd">请输入密码</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_username_formate">手机号或邮箱格式有误</string>
+
+    <string name="not_fond_net">找不到服务器，请稍后再试！</string>
+    <string name="connect_exception">连接失败，请稍后再试！</string>
+    <string name="socket_timeout_exception">连接超时，请稍后再试！</string>
+    <string name="net_code_401">登录信息过期，请重新登录！</string>
+    <string name="net_code_403">你没有权限访问！</string>
+    <string name="net_code_404">你访问内容不存在！</string>
+    <string name="net_code_500">服务器错误，请稍后再试！</string>
+    <string name="net_code_other">未知错误，请稍后再试！</string>
+    <string name="error_password_format">请输入6-15位数的密码！</string>
+    <string name="hint_input_name">请输入昵称（2~10位）</string>
+    <string name="hint_input_phone">请输入手机号</string>
+    <string name="hint_input_email">请输入邮箱</string>
+    <string name="hint_input_pwd">请设置密码（6~15位）</string>
+    <string name="hint_input_align_pwd">请确认密码</string>
+    <string name="register">注 册</string>
+    <string name="login">登 录</string>
+    <string name="login_other">第三方登录</string>
+    <string name="login_input_phoneoremail">请输入手机号/邮箱</string>
+    <string name="login_input_pwd">请输入密码</string>
 </resources>

@@ -19,4 +19,22 @@
         <item name="android:textSize">@dimen/text_12sp</item>
     </style>
 
+    <!--  appBar样式  -->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <!--  toolBar样式 -->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="inputTextStyle">
+        <item name="android:background">@drawable/selector_edit_input</item>
+        <item name="android:drawableLeft">@drawable/ic_phone</item>
+        <item name="android:drawablePadding">@dimen/val_10dp</item>
+        <item name="android:paddingBottom">@dimen/val_10dp</item>
+        <item name="android:paddingTop">@dimen/val_10dp</item>
+        <item name="android:layout_marginTop">@dimen/val_10dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
 </resources>

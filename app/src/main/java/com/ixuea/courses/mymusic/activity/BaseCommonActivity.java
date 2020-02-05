@@ -1,11 +1,15 @@
 package com.ixuea.courses.mymusic.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.ixuea.courses.mymusic.util.PreferenceUtil;
+
+import butterknife.ButterKnife;
 
 /**
  * 通用界面逻辑
@@ -40,6 +44,34 @@ public class BaseCommonActivity extends BaseActivity {
         finish();
     }
 
+    @Override
+    protected void initViews() {
+        super.initViews();
+        //初始化注解找控件
+        //绑定方法框架
+        if(isBindView()){
+            bindView();
+        }
+    }
+
+
+
+    /**
+     * 绑定View
+     */
+    protected void bindView() {
+        ButterKnife.bind(this);
+    }
+
+    /**
+     * 是否绑定View
+     *
+     * @return
+     */
+    protected boolean isBindView() {
+        return true;
+    }
+
     /**
      * 获取界面
      * @return
@@ -49,7 +81,7 @@ public class BaseCommonActivity extends BaseActivity {
     }
 
     /**
-     * 隐藏虚拟按键并且全屏
+     * 隐藏虚拟按键 并且全屏
      */
     protected void fullScreen(){
 
@@ -70,6 +102,31 @@ public class BaseCommonActivity extends BaseActivity {
 
             //设置到控件
             decorView.setSystemUiVisibility(options);
+        }
+    }
+
+    /**
+     * 状态栏文字显示白色
+     * 内容显示到状态栏下
+     */
+    protected void lightStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //状态栏颜色设置为透明
+            Window window = getWindow();
+
+            //背景颜色透明
+            window.setStatusBarColor(Color.TRANSPARENT);
+
+            //去除半透明状态栏(如果有)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            //SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN：让内容显示到状态栏
+            //SYSTEM_UI_FLAG_LAYOUT_STABLE：状态栏文字显示白色
+            //SYSTEM_UI_FLAG_LIGHT_STATUS_BAR：状态栏文字显示黑色
+            window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
         }
     }
 

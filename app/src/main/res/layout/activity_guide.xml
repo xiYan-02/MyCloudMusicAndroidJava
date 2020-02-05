@@ -26,11 +26,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/val_100dp">
+
         <!--   占位控件     -->
-        <View
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+       <include layout="@layout/fill"/>
 
         <Button
             android:id="@+id/bt_login_or_register"
@@ -41,10 +39,7 @@
             android:layout_height="@dimen/val_40dp"/>
 
         <!--   占位控件     -->
-        <View
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <include layout="@layout/fill"/>
 
         <Button
             android:id="@+id/bt_enter"
@@ -54,11 +49,9 @@
             android:layout_width="@dimen/val_130dp"
             android:layout_height="@dimen/val_40dp"/>
 
+
         <!--   占位控件     -->
-        <View
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <include layout="@layout/fill"/>
 
     </LinearLayout>
 

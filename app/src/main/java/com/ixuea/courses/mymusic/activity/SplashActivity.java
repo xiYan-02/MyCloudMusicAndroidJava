@@ -11,6 +11,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 
+import com.ixuea.courses.mymusic.MainActivity;
 import com.ixuea.courses.mymusic.R;
 import com.ixuea.courses.mymusic.util.PreferenceUtil;
 
@@ -37,14 +38,18 @@ public class SplashActivity extends BaseCommonActivity {
     };
 
     private void next() {
-        //启动引导界面并且关闭当前界面
-        startActivityAfterFinishThis(GuideActivity.class);
 
-       /* if (sp.getInstance(getApplicationContext()).isShowGuide()){
+        if (sp.getInstance(getApplicationContext()).isShowGuide()){
             startActivityAfterFinishThis(GuideActivity.class);
-        }else{
+        }else if (sp.isLogin()) {
+            //已经登录了
+
+            //跳转到首页
+            startActivityAfterFinishThis(MainActivity.class);
+        } else {
+            //跳转到登录注册界面
             startActivityAfterFinishThis(LoginOrRegisterActivity.class);
-        }*/
+        }
     }
 
     @Override
